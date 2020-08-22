@@ -7,13 +7,13 @@ router.get("/", async (req, res) => {
   const tasks = await Task.find();
   console.log(tasks);
 
-  res.render("index.ejs");
+  res.render("index.ejs", { tasks });
 });
 
 router.post("/add", async (req, res) => {
   const task = new Task(req.body);
   await task.save();
-  res.send("recived");
+  res.redirect("/");
 });
 
 module.exports = router;
