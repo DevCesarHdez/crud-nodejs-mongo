@@ -8,6 +8,7 @@ const app = express();
 //conectting to db
 
 //importing routes
+const indexRoutes = require("./routes/index");
 
 //Settings
 app.set("port", process.env.PORT || 8080);
@@ -19,6 +20,7 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extends: false }));
 
 //Routes
+app.get("/", indexRoutes);
 
 app.listen(app.get("port"), () => {
   console.log(`server on port ${app.get("port")}`);
