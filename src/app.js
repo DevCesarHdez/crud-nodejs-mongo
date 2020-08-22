@@ -3,9 +3,17 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
 
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
 const app = express();
 
 //conectting to db
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then((db) => console.log("db connected"))
+  .catch((err) => console.log(err));
 
 //importing routes
 const indexRoutes = require("./routes/index");
