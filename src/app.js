@@ -28,7 +28,7 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extends: false }));
 
 //Routes
-app.get("/", indexRoutes);
+app.use("/", indexRoutes);
 
 app.listen(app.get("port"), () => {
   console.log(`server on port ${app.get("port")}`);

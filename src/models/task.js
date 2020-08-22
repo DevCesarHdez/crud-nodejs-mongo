@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema();
+const Schema = mongoose.Schema;
 
 const TareaSchema = new Schema({
   title: String,
@@ -10,4 +10,4 @@ const TareaSchema = new Schema({
   }
 });
 
-module.esports = mongoose.model("taks", TareaSchema);
+module.exports = mongoose.model("taks", TareaSchema);
