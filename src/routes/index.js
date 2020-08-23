@@ -16,4 +16,14 @@ router.post("/add", async (req, res) => {
   res.redirect("/");
 });
 
+router.get("/update/:id", async (req, res) => {
+  const { id } = req.params;
+});
+
+router.get("/delete/:id", async (req, res) => {
+  const { id } = req.params;
+  await Task.remove({ _id: id });
+  res.redirect("/");
+});
+
 module.exports = router;
